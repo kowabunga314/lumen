@@ -8,6 +8,9 @@ from django.db.models.fields.related import ForeignKey
 class Series(models.Model):
     name = models.CharField(max_length=128)
 
+    class Meta:
+        verbose_name_plural = "Series"
+
 
 class Photo(models.Model):
     name = models.CharField(max_length=128)
