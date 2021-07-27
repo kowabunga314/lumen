@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Saturn Lab - Home</title>
+  </head>
+  <body>
+    {% if series_list %}
+        <ul>
+        {% for series in series_list %}
+            <li>{{ series.description }}</li>
+            <li><img src="/showcase/{{ series.thumbnail }}/"></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No photos are available.</p>
+    {% endif %}
+</body>
+</html>
