@@ -7,6 +7,7 @@ from django.db.models.fields.related import ForeignKey
 
 class Series(models.Model):
     name = models.CharField(max_length=128)
+    description = models.TextField()
 
     class Meta:
         verbose_name_plural = "Series"
@@ -14,6 +15,7 @@ class Series(models.Model):
 
 class Photo(models.Model):
     name = models.CharField(max_length=128)
+    description = models.TextField()
     url = models.CharField(max_length=256)
     location = models.CharField(max_length=128)
     pub_date = models.DateField('Date of Publication', default=datetime.now)
