@@ -8,8 +8,11 @@
     {% if series_list %}
         <ul>
         {% for series in series_list %}
-            <li>{{ series.description }}</li>
-            <li><img src="/showcase/{{ series.thumbnail }}/"></li>
+            <li><div class="series-display">
+                {{ series.description }}
+                <!-- <img src="{{ series.thumbnail }}" alt="Series Thumbnail"> -->
+                <img src="images/crew-2-launch-titusville.jpg" alt="Series Thumbnail">
+            </div></li>
         {% endfor %}
         </ul>
     {% else %}
@@ -17,3 +20,9 @@
     {% endif %}
 </body>
 </html>
+<style>
+    .series-display {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
