@@ -8,7 +8,7 @@ from django.db.models.fields.related import ForeignKey
 class Series(models.Model):
     name = models.CharField(max_length=128)
     description = models.TextField(default='')
-    thumbnail_url = models.URLField(max_length=256,  default='')
+    thumbnail = models.ImageField(upload_to='images/', default='images/placeholder.jpeg')
 
     class Meta:
         verbose_name_plural = "Series"
@@ -17,7 +17,7 @@ class Series(models.Model):
 class Photo(models.Model):
     name = models.CharField(max_length=128)
     description = models.TextField(default='')
-    url = models.URLField(max_length=256,  default='')
+    photo = models.ImageField(upload_to='images/', default='images/placeholder.jpeg')
     location = models.CharField(max_length=128)
     pub_date = models.DateField('Date of Publication', default=datetime.now)
     series = ForeignKey(Series, on_delete=models.CASCADE)

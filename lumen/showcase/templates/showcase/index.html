@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,8 +11,8 @@
         {% for series in series_list %}
             <li><div class="series-display">
                 {{ series.description }}
-                <!-- <img src="{{ series.thumbnail }}" alt="Series Thumbnail"> -->
-                <img src="images/crew-2-launch-titusville.jpg" alt="Series Thumbnail">
+                <img src="{{ series.thumbnail.url }}" alt="Series Thumbnail">
+                <!-- <img src="images/placeholder.jpg" alt="Series Thumbnail"> -->
             </div></li>
         {% endfor %}
         </ul>
