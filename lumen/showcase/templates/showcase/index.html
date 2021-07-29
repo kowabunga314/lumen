@@ -3,12 +3,11 @@
 
 {% block content %}
     {% if series_list %}
-        <ul>
+        <ul class="series-list">
         {% for series in series_list %}
-            <li><div class="series-display">
+            <li class="series-container"><div class="series-display">
                 {{ series.description }}
-]                <img src="{{ series.thumbnail.url }}" alt="Series Thumbnail" class="image-display">
-                <!-- <img src="images/placeholder.jpg" alt="Series Thumbnail"> -->
+                <img src="{{ series.thumbnail.url }}" alt="Series Thumbnail" class="image-display">
             </div></li>
         {% endfor %}
         </ul>
@@ -17,12 +16,23 @@
     {% endif %}
 
     <style>
+        .series-list {
+            display: flex;
+            flex-flow: row wrap;
+            width: 100%;
+        }
+        .series-container {
+            flex: 1 0 34%;
+            border: 1px solid red;
+        }
         .series-display {
             display: flex;
             flex-direction: column;
+            width: 100%;
         }
         .image-display {
-            max-width: 50%;
+            max-width: 100%;
+            padding: 5%;
         }
     </style>
 
