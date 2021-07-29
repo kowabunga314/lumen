@@ -1,17 +1,13 @@
+{% extends "showcase/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Saturn Lab - Home</title>
-  </head>
-  <body>
+
+{% block content %}
     {% if series_list %}
         <ul>
         {% for series in series_list %}
             <li><div class="series-display">
                 {{ series.description }}
-                <img src="{{ series.thumbnail.url }}" alt="Series Thumbnail">
+]                <img src="{{ series.thumbnail.url }}" alt="Series Thumbnail" class="image-display">
                 <!-- <img src="images/placeholder.jpg" alt="Series Thumbnail"> -->
             </div></li>
         {% endfor %}
@@ -19,11 +15,15 @@
     {% else %}
         <p>No photos are available.</p>
     {% endif %}
-</body>
-</html>
-<style>
-    .series-display {
-        display: flex;
-        flex-direction: column;
-    }
-</style>
+
+    <style>
+        .series-display {
+            display: flex;
+            flex-direction: column;
+        }
+        .image-display {
+            max-width: 50%;
+        }
+    </style>
+
+{% endblock %}

@@ -20,5 +20,5 @@ class Photo(models.Model):
     photo = models.ImageField(upload_to='images/', default='images/placeholder.jpeg')
     location = models.CharField(max_length=128)
     pub_date = models.DateField('Date of Publication', default=datetime.now)
-    series = ForeignKey(Series, on_delete=models.CASCADE)
+    series = ForeignKey(Series, on_delete=models.CASCADE, related_name='photos')
 
