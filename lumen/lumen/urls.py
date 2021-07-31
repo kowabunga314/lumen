@@ -18,9 +18,11 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
+app_name = 'lumen'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('showcase/', include('showcase.urls'))
+    path('showcase/', include('showcase.urls'), name='showcase')
 ]
 
 if settings.DEBUG:
