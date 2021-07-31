@@ -7,11 +7,14 @@ from django.db.models.fields.related import ForeignKey
 
 class Series(models.Model):
     name = models.CharField(max_length=128)
-    description = models.TextField(default='')
+    description = models.TextField(default='', blank=True)
     thumbnail = models.ImageField(upload_to='images/', default='images/placeholder.jpeg')
 
     class Meta:
         verbose_name_plural = "Series"
+
+    def __str__(self):
+        return self.name
 
     def photo_count(self):
         return len(self.photos.all())
@@ -19,9 +22,12 @@ class Series(models.Model):
 
 class Photo(models.Model):
     name = models.CharField(max_length=128)
-    description = models.TextField(default='')
-    photo = models.ImageField(upload_to='images/', default='images/placeholder.jpeg')
-    location = models.CharField(max_length=128)
+    description = models.TextField(default='', blank=True)
+    photo = models.ImageField(upload_to='images/', default='images/placeholder.jpeg', blank=True)
+    location = models.CharField(max_length=128, blank=True)
     pub_date = models.DateField('Date of Publication', default=datetime.now)
     series = ForeignKey(Series, on_delete=models.CASCADE, related_name='photos')
+
+    def __str__(self):
+        return self.name
 
