@@ -24,14 +24,8 @@ def get_series(request, series_name):
     # Look up requested series
     series = get_object_or_404(Series, name=series_name)
 
-    # Get associated photos
-    try:
-        photos = Photo.objects.filter(series=series.id)
-    except Photo.DoesNotExist:
-        photos = []
-
     # Generate context
-    context = {'series': series, 'photos': photos}
+    context = {'series': series}
 
     # Render series detail
     return render(request, 'showcase/series_detail.html', context)

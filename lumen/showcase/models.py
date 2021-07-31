@@ -13,6 +13,9 @@ class Series(models.Model):
     class Meta:
         verbose_name_plural = "Series"
 
+    def photo_count(self):
+        return len(self.photos.all())
+
 
 class Photo(models.Model):
     name = models.CharField(max_length=128)

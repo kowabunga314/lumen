@@ -2,13 +2,14 @@
 {% load static %}
 
 {% block content %}
+    <div class="title"><h1 class="title">Saturn Lab Photography</h1></div>
     {% if series_list %}
-        <ul class="series-list">
+        <ul class="series">
         {% for series in series_list %}
-            <li class="series-container"><div class="series-display">
+            <li class="series"><a class="series" href="{% url 'series_detail' series_name=series.name %}">
                 {{ series.description }}
-                <img src="{{ series.thumbnail.url }}" alt="Series Thumbnail" class="image-display">
-            </div></li>
+                <img src="{{ series.thumbnail.url }}" alt="Series Thumbnail" class="series">
+            </a></li>
         {% endfor %}
         </ul>
     {% else %}
@@ -16,21 +17,36 @@
     {% endif %}
 
     <style>
-        .series-list {
-            display: flex;
-            flex-flow: row wrap;
+        div.title {
             width: 100%;
         }
-        .series-container {
-            flex: 1 0 34%;
-            border: 1px solid red;
+        h1.title {
+            /* margin-left: 10%; */
         }
-        .series-display {
+        a.series {
             display: flex;
             flex-direction: column;
             width: 100%;
+            color: black;
+            text-decoration: none;
         }
-        .image-display {
+        ul.series {
+            display: flex;
+            flex-flow: row wrap;
+            max-width: 100%;
+            list-style-type: none;
+            padding-top: 5%;
+            padding-left: 10%;
+            padding-right: 10%;
+            /* margin: 0; */
+            /* border: 1px solid red; */
+        }
+        li.series {
+            flex: 1 0 34%;
+            /* border: 1px solid red; */
+            cursor: pointer;
+        }
+        img.series {
             max-width: 100%;
             padding: 5%;
         }
