@@ -1,6 +1,26 @@
+from django.db.models import query
 from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 from showcase.models import Photo, Series
+from showcase.serializers import PhotoSerializer, SeriesSerializer
+from rest_framework import permissions, viewsets
+
+
+class SeriesViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows a group of Series objects to be retrieved
+    """
+    queryset = Series.objects.all().order_by('name')
+    serializer_class = SeriesSerializer
+
+
+class PhotoViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows a group of Photo objects to be retrieved
+    """
+    queryset = Photo.objects.all().order_by('-pub_date')
+    serializer_class = PhotoSerializer
+
 
 # Create your views here.
 def index(request):

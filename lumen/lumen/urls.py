@@ -17,12 +17,20 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework import routers, serializers, viewsets
+from showcase.views import PhotoViewSet, SeriesViewSet
 
 app_name = 'lumen'
 
+router = routers.DefaultRouter()
+router.register('series', SeriesViewSet)
+router.register('photo', PhotoViewSet)
+
 urlpatterns = [
+    path('', include(router.urls)),
     path('admin/', admin.site.urls),
-    path('showcase/', include('showcase.urls'), name='showcase')
+    path('api-auth/', include('rest_framework.urls')),
+    path('showcase/', include('showcase.urls'), name='showcase'),
 ]
 
 if settings.DEBUG:

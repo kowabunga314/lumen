@@ -39,3 +39,17 @@ class ShowcaseIndexViewTests(TestCase):
         url = reverse('series_detail', args=['slug'])
         self.assertEqual(resolve(url).func, get_series)
 
+
+class SeriesApiTests(TestCase):
+
+    def test_series_basic_call(self):
+        response = self.client.get('/series/')
+        self.assertEqual(response.status_code, 200)
+
+
+class PhotoApiTests(TestCase):
+
+    def test_photo_url_resolves(self):
+        response = self.client.get('/photo/')
+        self.assertEqual(response.status_code, 200)
+
