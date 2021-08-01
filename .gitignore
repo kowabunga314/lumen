@@ -2,6 +2,7 @@
 .vscode
 
 # Project-specific
+media/
 media/*
 
 # Byte-compiled / optimized / DLL files
