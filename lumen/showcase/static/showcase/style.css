@@ -1,0 +1,11 @@
+li a {
+    color: green;
+}
+h1 {
+    font-size: xxx-large;
+    font-weight: 200;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+div.background {
+    background: white url("images/crew-2-launch-titusville.jpeg") no-repeat;
+}

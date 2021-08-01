@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-    <div class="title"><h1 class="title">Saturn Lab Photography</h1></div>
+
     {% if series_list %}
         <ul class="series">
         {% for series in series_list %}
@@ -17,12 +17,6 @@
     {% endif %}
 
     <style>
-        div.title {
-            width: 100%;
-        }
-        h1.title {
-            /* margin-left: 10%; */
-        }
         a.series {
             display: flex;
             flex-direction: column;
